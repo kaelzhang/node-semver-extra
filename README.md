@@ -11,10 +11,37 @@ $ npm install semver-stable --save
 ## Usage
 
 ```js
-var semver_stable = require('semver-stable');
+var stable = require('semver-stable');
 ```
+
+### stable.is(version)
+
+```js
+stable.is('1.2.3-stable'); // -> false
+stable.is('1.2.3-alpha');  // -> false
+```
+
+Returns `Boolean` whether the `version` is stable.
+
+
+### stable.match(range, versions)
+
+- range `String` semver range
+- version `Array.<semver>`
+
+```js
+stable.match('~1.2.0', [
+  '1.3.3',      // not match the range
+  '1.2.3-beta', // not a stable version
+  '1.2.2',      // that's it
+  '1.2.1',      // much older
+  '1.1.2'
+]);
+// -> 1.2.2
+```
+
+Returns `String` the latest stable version matches the range.
 
 ## Licence
 
-MIT
-<!-- do not want to make nodeinit to complicated, you can edit this whenever you want. -->
+MIT Licence
