@@ -11,9 +11,14 @@
     "url": "git://github.com/kaelzhang/node-semver-stable.git"
   },
   "keywords": [
-    "semver-stable"
+    "semver",
+    "satisfies",
+    "satisfy",
+    "match",
+    "stable",
+    "is"
   ],
-  "engines": { 
+  "engines": {
     "node": ">=0.11.0"
   },
   "author": "kael",
@@ -24,5 +29,8 @@
   "devDependencies": {
     "mocha": "*",
     "chai": "*"
+  },
+  "dependencies": {
+    "semver": "^2.3.0"
   }
 }
