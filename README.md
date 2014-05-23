@@ -24,19 +24,19 @@ stable.is('1.2.3-alpha');  // -> false
 Returns `Boolean` whether the `version` is stable.
 
 
-### stable.match(range, versions)
+### stable.satisfies(versions, range)
 
 - range `String` semver range
 - version `Array.<semver>`
 
 ```js
-stable.match('~1.2.0', [
+stable.satisfies([
   '1.3.3',      // not match the range
   '1.2.3-beta', // not a stable version
   '1.2.2',      // that's it
   '1.2.1',      // much older
   '1.1.2'
-]);
+], '~1.2.0');
 // -> 1.2.2
 ```
 

@@ -30,8 +30,8 @@ describe("stable.match(range, versions)", function(){
       '1.1.2'
     ];
 
-    expect(stable.match('latest', versions)).to.equal('1.3.3');
-    expect(stable.match('~1.2.2', versions)).to.equal('1.2.2');
+    expect(stable.satisfies(versions, 'latest')).to.equal('1.3.3');
+    expect(stable.satisfies(versions, '~1.2.2')).to.equal('1.2.2');
     done();
   });
 });

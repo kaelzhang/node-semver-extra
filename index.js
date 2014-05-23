@@ -5,7 +5,7 @@ var stable = exports;
 var semver = require('semver');
 var util = require('util');
 
-stable.match = function(range, versions) {
+stable.satisfies = function(versions, range) {
   if (!util.isArray(versions)) {
     return null;
   }

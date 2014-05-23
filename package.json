@@ -1,6 +1,6 @@
 {
   "name": "semver-stable",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "semver-stable",
   "main": "index.js",
   "scripts": {
