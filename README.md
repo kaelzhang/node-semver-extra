@@ -1,6 +1,6 @@
 # semver-stable [![NPM version](https://badge.fury.io/js/semver-stable.svg)](http://badge.fury.io/js/semver-stable) [![Build Status](https://travis-ci.org/kaelzhang/node-semver-stable.svg?branch=master)](https://travis-ci.org/kaelzhang/node-semver-stable) [![Dependency Status](https://gemnasium.com/kaelzhang/node-semver-stable.svg)](https://gemnasium.com/kaelzhang/node-semver-stable)
 
-<!-- description -->
+Manage stable semver versions
 
 ## Install
 
