@@ -20,7 +20,7 @@ describe("stable.is(version)", function(){
 });
 
 
-describe("stable.match(range, versions)", function(){
+describe("stable.maxSatisfying(range, versions)", function(){
   it("normal", function(done){
     var versions = [
       '1.3.3',      
@@ -30,8 +30,8 @@ describe("stable.match(range, versions)", function(){
       '1.1.2'
     ];
 
-    expect(stable.satisfies(versions, 'latest')).to.equal('1.3.3');
-    expect(stable.satisfies(versions, '~1.2.2')).to.equal('1.2.2');
+    expect(stable.maxSatisfying(versions, 'latest')).to.equal('1.3.3');
+    expect(stable.maxSatisfying(versions, '~1.2.2')).to.equal('1.2.2');
     done();
   });
 });

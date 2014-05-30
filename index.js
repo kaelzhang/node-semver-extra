@@ -5,7 +5,8 @@ var stable = exports;
 var semver = require('semver');
 var util = require('util');
 
-stable.satisfies = function(versions, range) {
+
+stable.maxSatisfying = function(versions, range) {
   if (!util.isArray(versions)) {
     return null;
   }

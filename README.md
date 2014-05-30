@@ -17,6 +17,7 @@ var stable = require('semver-stable');
 ### stable.is(version)
 
 ```js
+stable.is('1.2.3');        // -> true
 stable.is('1.2.3-stable'); // -> false
 stable.is('1.2.3-alpha');  // -> false
 ```
@@ -24,13 +25,13 @@ stable.is('1.2.3-alpha');  // -> false
 Returns `Boolean` whether the `version` is stable.
 
 
-### stable.satisfies(versions, range)
+### stable.maxSatisfying(versions, range)
 
 - range `String` semver range
 - version `Array.<semver>`
 
 ```js
-stable.satisfies([
+stable.maxSatisfying([
   '1.3.3',      // not match the range
   '1.2.3-beta', // not a stable version
   '1.2.2',      // that's it
