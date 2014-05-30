@@ -27,8 +27,8 @@ Returns `Boolean` whether the `version` is stable.
 
 ### stable.maxSatisfying(versions, range)
 
+- versions `Array.<semver>`
 - range `String` semver range
-- version `Array.<semver>`
 
 ```js
 stable.maxSatisfying([
@@ -43,6 +43,11 @@ stable.maxSatisfying([
 
 Returns `String` the latest stable version matches the range.
 
-## Licence
 
-MIT Licence
+### stable.max(versions);
+
+Returns `String` the max stable version.
+
+## License
+
+MIT

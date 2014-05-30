@@ -11,20 +11,14 @@ stable.maxSatisfying = function(versions, range) {
     return null;
   }
 
-  // Ordered by version DESC 
-  versions.sort(semver.rcompare);
-  var matched = null;
-
-  versions.some(function(version) {
+  versions = desc(versions);
+  return first(versions, function(version) {
     if (stable.is(version)) {
       if (range === 'latest' || semver.satisfies(version, range)) {
-        matched = version;
         return true;
       }
     }
-  });
-
-  return matched;
+  });;
 };
 
 
@@ -32,3 +26,34 @@ stable.is = function(version) {
   var semver_obj = semver.parse(version);
   return !semver_obj.prerelease.length;
 };
+
+
+stable.max = function (versions) {
+  versions = desc(versions);
+  return first(versions, stable.is);
+};
+
+
+// Sort by DESC
+function desc (array) {
+  // Simply clone
+  array = [].concat(array);
+  // Ordered by version DESC 
+  array.sort(semver.rcompare);
+  return array;
+}
+
+// Returns the first matched array item
+function first (array, filter) {
+  var i = 0;
+  var length = array.length;
+  var item;
+  for (; i < length; i ++) {
+    item = array[i];
+    if (filter(item)) {
+      return item;
+    }
+  }
+
+  return null;
+}
