@@ -30,7 +30,7 @@ describe("stable.maxSatisfying(range, versions)", function(){
   ];
 
   var versions = [].concat(origin);
-  var latest = stable.maxSatisfying(versions, 'latest');
+  var latest = stable.maxSatisfying(versions, '*');
   var version_122 = stable.maxSatisfying(versions, '~1.2.2')
 
   it("normal", function(done){

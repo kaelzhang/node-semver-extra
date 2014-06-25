@@ -14,7 +14,7 @@ stable.maxSatisfying = function(versions, range) {
   versions = desc(versions);
   return first(versions, function(version) {
     if (stable.is(version)) {
-      if (range === 'latest' || semver.satisfies(version, range)) {
+      if (semver.satisfies(version, range)) {
         return true;
       }
     }
