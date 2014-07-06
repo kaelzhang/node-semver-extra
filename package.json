@@ -1,6 +1,6 @@
 {
   "name": "semver-stable",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "semver-stable",
   "main": "index.js",
   "scripts": {
@@ -19,7 +19,7 @@
     "is"
   ],
   "engines": {
-    "node": ">=0.11.0"
+    "node": ">=0.10.0"
   },
   "author": "kael",
   "license": "MIT",
