@@ -1,10 +1,10 @@
 {
   "name": "semver-stable",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "semver-stable",
   "main": "index.js",
   "scripts": {
-    "test": "make test"
+    "test": "sh test.sh"
   },
   "repository": {
     "type": "git",
@@ -31,6 +31,6 @@
     "chai": "*"
   },
   "dependencies": {
-    "semver": "^2.3.0"
+    "semver": "^3.0.0"
   }
 }
