@@ -1,6 +1,6 @@
 {
   "name": "semver-extra",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "semver-extra contains useful methods that aren't included in the vanilla semver package.",
   "main": "index.js",
   "scripts": {

@@ -13,26 +13,26 @@ $ npm install semver-extra --save
 ## Usage
 
 ```js
-var se = require('semver-extra');
+var semver = require('semver-extra');
 ```
 
 First of all, `semver-extra` contains all methods of [`semver@3.x`](https://www.npmjs.org/package/semver), so we could use `semver-extra` only without the vanilla one.
 
 ```js
-se.validRange('^1.2.3'); // '>=1.2.3-0 <2.0.0-0'
+semver.validRange('^1.2.3'); // '>=1.2.3-0 <2.0.0-0'
 ```
 
-### se.isStable(version)
+### semver.isStable(version)
 
 ```js
-se.isStable('1.2.3');        // -> true
-se.isStable('1.2.3-stable'); // -> false
-se.isStable('1.2.3-alpha');  // -> false
+semver.isStable('1.2.3');        // -> true
+semver.isStable('1.2.3-stable'); // -> false
+semver.isStable('1.2.3-alpha');  // -> false
 ```
 
 Checks whether the `version` is a stable version.
 
-### se.isPrerelease(version, [prerelease])
+### semver.isPrerelease(version, [prerelease])
 
 - version `string`
 - prerelease `String=` 
@@ -40,21 +40,21 @@ Checks whether the `version` is a stable version.
   - or `prerelease` could be the pre-release string.
 
 ```js
-se.isPrerelease('1.2.3'); // false
-se.isPrerelease('1.2.3-beta'); // true
-se.isPrerelease('1.2.3-beta', 'alpha'); // false
-se.isPrerelease('1.2.3-1.2.3', '1.2.3'); // true, that supports numeric prerelease versions
-se.isPrerelease('1.2.3-alpha.1', 'alpha.1'); // true
+semver.isPrerelease('1.2.3'); // false
+semver.isPrerelease('1.2.3-beta'); // true
+semver.isPrerelease('1.2.3-beta', 'alpha'); // false
+semver.isPrerelease('1.2.3-1.2.3', '1.2.3'); // true, that supports numeric prerelease versions
+semver.isPrerelease('1.2.3-alpha.1', 'alpha.1'); // true
 ```
 
 Checks whether the `version` is an unstable version or matches the `prerelease`.
 
 
-### se.isExplicit(version)
+### semver.isExplicit(version)
 
 ```js
-se.isExplicit('1.0.0'); // true
-se.isExplicit('^1.1.0'); // false
+semver.isExplicit('1.0.0'); // true
+semver.isExplicit('^1.1.0'); // false
 ```
 
 Checks whehter the `version` is an explicit version, i.e. it is not a range.
@@ -71,29 +71,29 @@ var versions = [
 ];
 ```
 
-### se.max(versions)
+### semver.max(versions)
 
 ```js
-se.max(versions); // '1.5.0-rc'
+semver.max(versions); // '1.5.0-rc'
 ```
 
 Returns `String` the maximun version in the list.
 
 
-### se.maxStable(versions)
+### semver.maxStable(versions)
 
 ```js
-se.maxStable(versions); // '1.3.3'
+semver.maxStable(versions); // '1.3.3'
 ```
 
 Returns `String` the maximun stable version in the list.
 
-### se.maxPrerelease(versions, [prerelease])
+### semver.maxPrerelease(versions, [prerelease])
 
 ```js
-se.maxPrerelease(versions, 'alpha'); // null
-se.maxPrerelease(versions); // '1.5.0-rc'
-se.maxPrerelease(versions, 'beta'); // '1.2.3-beta'
+semver.maxPrerelease(versions, 'alpha'); // null
+semver.maxPrerelease(versions); // '1.5.0-rc'
+semver.maxPrerelease(versions, 'beta'); // '1.2.3-beta'
 ```
 
 Returns the maximun (matched) pre-release version matches the prerelease.
