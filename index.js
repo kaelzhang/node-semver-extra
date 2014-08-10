@@ -5,7 +5,6 @@ var semver = require('semver');
 extra.__proto__ = semver;
 extra.isStable = isStable;
 extra.isPrerelease = isPrerelease;
-extra.isExplicit = isExplicit;
 extra.max = max;
 extra.maxStable = maxStable;
 extra.maxPrerelease = maxPrerelease;
@@ -27,12 +26,6 @@ function isPrerelease (version, prerelease) {
 
   prerelease = prerelease.split('.');
   return arrayEqual(prerelease, pr);
-}
-
-// Returns whether it is a explicit version
-function isExplicit (version) {
-  var range = semver.validRange(version);
-  return range === version;
 }
 
 function arrayEqual (a, b) {

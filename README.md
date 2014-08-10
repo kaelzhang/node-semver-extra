@@ -50,16 +50,6 @@ semver.isPrerelease('1.2.3-alpha.1', 'alpha.1'); // true
 Checks whether the `version` is an unstable version or matches the `prerelease`.
 
 
-### semver.isExplicit(version)
-
-```js
-semver.isExplicit('1.0.0'); // true
-semver.isExplicit('^1.1.0'); // false
-```
-
-Checks whehter the `version` is an explicit version, i.e. it is not a range.
-
-
 ```js
 var versions = [
   '1.1.2'

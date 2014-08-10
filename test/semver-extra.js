@@ -42,27 +42,6 @@ describe("extra.isPrerelease(version, [pr])", function(){
 });
 
 
-describe("extra.isExplicit(version)", function(){
-  [
-    ['1.2.3', true],
-    ['1.2.3-beta', true],
-    ['1.2.3-beta.1', true],
-    // invalid range
-    ['abc', false],
-    ['1.2', false],
-    ['^1.2.3', false],
-    ['>1.2.3 <1.3.0', false]
-  ].forEach(function (c) {
-    var v = c[0];
-    var r = c[1];
-
-    it(v + ': ' + r, function(){
-      expect(extra.isExplicit(v)).to.equal(r);
-    });
-  });
-});
-
-
 describe("extra.max*()", function(){
   var versions = [
     '1.2.2', 
