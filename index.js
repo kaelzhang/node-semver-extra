@@ -5,6 +5,10 @@ var semver = require('semver');
 extra.__proto__ = semver;
 extra.isStable = isStable;
 extra.isPrerelease = isPrerelease;
+extra.isExplicit = isExplicit;
+extra.max = max;
+extra.maxStable = maxStable;
+extra.maxPrerelease = maxPrerelease;
 
 var util = require('util');
 
@@ -16,14 +20,20 @@ function isPrerelease (version, prerelease) {
   var pr = semver.parse(version).prerelease;
 
   // isPrerelease('1.1.0-abc') -> true
-  if (!prerelease && pr.length) {
-    return true;
+  // isPrerelease('1.1.0') -> false
+  if (!prerelease) {
+    return !!pr.length;
   }
 
   prerelease = prerelease.split('.');
   return arrayEqual(prerelease, pr);
 }
 
+// Returns whether it is a explicit version
+function isExplicit (version) {
+  var range = semver.validRange(version);
+  return range === version;
+}
 
 function arrayEqual (a, b) {
   if (!util.isArray(a) || !util.isArray(b)) {
@@ -31,7 +41,8 @@ function arrayEqual (a, b) {
   }
 
   return a.every(function (v, i) {
-    return v === b[i];
+    // Double equal, simply deal with numeric prerelease versions
+    return v == b[i];
   });
 }
 
@@ -55,7 +66,7 @@ function max (versions) {
 
 // Sort `versions` in DESC order
 function desc (versions) {
-  return versions.filter(semver.rcompare);
+  return versions.sort(semver.rcompare);
 }
 
 // Returns the first matched array item
