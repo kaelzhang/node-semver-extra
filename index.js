@@ -1,46 +1,61 @@
 'use strict';
 
-var stable = exports;
-
+var extra = exports;
 var semver = require('semver');
+extra.__proto__ = semver;
+extra.isStable = isStable;
+extra.isPrerelease = isPrerelease;
+
 var util = require('util');
 
+function isStable (version) {
+  return !semver.parse(version).prerelease.length;
+}
 
-stable.maxSatisfying = function(versions, range) {
-  if (!util.isArray(versions)) {
-    return null;
+function isPrerelease (version, prerelease) {
+  var pr = semver.parse(version).prerelease;
+
+  // isPrerelease('1.1.0-abc') -> true
+  if (!prerelease && pr.length) {
+    return true;
   }
 
-  versions = desc(versions);
-  return first(versions, function(version) {
-    if (stable.is(version)) {
-      if (semver.satisfies(version, range)) {
-        return true;
-      }
-    }
-  });;
-};
+  prerelease = prerelease.split('.');
+  return arrayEqual(prerelease, pr);
+}
 
 
-stable.is = function(version) {
-  var semver_obj = semver.parse(version);
-  return !semver_obj.prerelease.length;
-};
+function arrayEqual (a, b) {
+  if (!util.isArray(a) || !util.isArray(b)) {
+    return false;
+  }
+
+  return a.every(function (v, i) {
+    return v === b[i];
+  });
+}
 
 
-stable.max = function (versions) {
-  versions = desc(versions);
-  return first(versions, stable.is);
-};
+// Returns the max stable version
+function maxStable (versions) {
+  return first(desc(versions), isStable);
+}
 
+// Returns the max prerelease version of the maximun matched prerelease version
+function maxPrerelease (versions, prerelease) {
+  return first(desc(versions), function (version) {
+    return isPrerelease(version, prerelease);
+  });
+}
 
-// Sort by DESC
-function desc (array) {
-  // Simply clone
-  array = [].concat(array);
-  // Ordered by version DESC 
-  array.sort(semver.rcompare);
-  return array;
+// Returns the max version
+function max (versions) {
+  return desc(versions)[0] || null;
+}
+
+// Sort `versions` in DESC order
+function desc (versions) {
+  return versions.filter(semver.rcompare);
 }
 
 // Returns the first matched array item
