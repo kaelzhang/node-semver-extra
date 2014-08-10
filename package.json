@@ -1,10 +1,10 @@
 {
-  "name": "semver-stable",
-  "version": "2.0.2",
-  "description": "semver-stable",
+  "name": "semver-extra",
+  "version": "1.0.0",
+  "description": "semver-extra contains methods that aren't included in the vanilla semver package.",
   "main": "index.js",
   "scripts": {
-    "test": "sh test.sh"
+    "test": "./node_modules/.bin/mocha --reporter spec ./test/*.js"
   },
   "repository": {
     "type": "git",
@@ -12,11 +12,11 @@
   },
   "keywords": [
     "semver",
-    "satisfies",
-    "satisfy",
-    "match",
+    "is",
     "stable",
-    "is"
+    "pre-preleases",
+    "prepreleases",
+    "max"
   ],
   "engines": {
     "node": ">=0.10.0"
