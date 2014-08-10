@@ -29,6 +29,7 @@ describe("extra.isPrerelease(version, [pr])", function(){
     ['1.2.3-1.2.3', '1.2.3', true],
     ['1.2.3-alpha', 'alpha', true],
     ['1.2.3-alpha.1.ab', 'alpha.1.ab', true],
+    ['1.2.3-alpha.1.ab', 'alpha.2.ab', false],
   ].forEach(function (c) {
     var v = c[0];
     var p = c[1];
@@ -94,51 +95,3 @@ describe("extra.max*()", function(){
     expect(extra.maxPrerelease([], 'rc')).to.equal(null);
   });
 });
-
-
-// describe("stable.maxSatisfying(range, versions)", function(){
-//   var origin = [
-//     '1.2.2', 
-//     '1.3.3',
-//     '1.1.2',
-//     '1.2.3-beta', 
-//     '1.2.1',
-//   ];
-
-//   var versions = [].concat(origin);
-//   var latest = stable.maxSatisfying(versions, '*');
-//   var version_122 = stable.maxSatisfying(versions, '~1.2.2')
-
-//   it("normal", function(done){
-//     expect(latest).to.equal('1.3.3');
-//     expect(version_122).to.equal('1.2.2');
-//     done();
-//   });
-
-//   it("versions should not be changed", function(done){
-//     expect(versions).to.deep.equal(origin);
-//     done();
-//   });
-// });
-
-// describe("stable.max(versions)", function(){
-//   var origin = [
-//     '1.2.2', 
-//     '1.3.3-alpha',
-//     '1.1.2',
-//     '1.2.3-beta', 
-//     '1.2.1',
-//   ];
-//   var versions = [].concat(origin);
-//   var max = stable.max(versions);
-
-//   it("returns the max stable version", function(done){
-//     expect(max).to.equal('1.2.2');
-//     done();
-//   });
-
-//   it("versions should not be changed", function(done){
-//     expect(versions).to.deep.equal(origin);
-//     done();
-//   });
-// });
