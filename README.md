@@ -71,7 +71,7 @@ var versions = [
 ];
 ```
 
-### stable.max(versions)
+### se.max(versions)
 
 ```js
 se.max(versions); // '1.5.0-rc'
@@ -80,7 +80,7 @@ se.max(versions); // '1.5.0-rc'
 Returns `String` the maximun version in the list.
 
 
-### stable.maxStable(versions)
+### se.maxStable(versions)
 
 ```js
 se.maxStable(versions); // '1.3.3'
@@ -88,7 +88,7 @@ se.maxStable(versions); // '1.3.3'
 
 Returns `String` the maximun stable version in the list.
 
-### stable.maxPrerelease(versions, [prerelease])
+### se.maxPrerelease(versions, [prerelease])
 
 ```js
 se.maxPrerelease(versions, 'alpha'); // null
