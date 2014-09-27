@@ -16,7 +16,7 @@ $ npm install semver-extra --save
 var semver = require('semver-extra');
 ```
 
-First of all, `semver-extra` contains all methods of [`semver@3.x`](https://www.npmjs.org/package/semver), so we could use `semver-extra` only without the vanilla one.
+First of all, `semver-extra` contains all methods of [`semver@4.x`](https://www.npmjs.org/package/semver), so we could use `semver-extra` only without the vanilla one.
 
 ```js
 semver.validRange('^1.2.3'); // '>=1.2.3-0 <2.0.0-0'
