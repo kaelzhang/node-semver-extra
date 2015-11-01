@@ -1,6 +1,6 @@
 {
   "name": "semver-extra",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "semver-extra contains useful methods that aren't included in the vanilla semver package.",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/kaelzhang/node-semver-stable.git"
+    "url": "git://github.com/kaelzhang/node-semver-extra.git"
   },
   "keywords": [
     "semver",
@@ -25,13 +25,13 @@
   "author": "kael",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/kaelzhang/node-semver-stable/issues"
+    "url": "https://github.com/kaelzhang/node-semver-extra/issues"
   },
   "devDependencies": {
     "mocha": "*",
     "chai": "*"
   },
   "dependencies": {
-    "semver": "^4.0.0"
+    "semver": "^5.0.0"
   }
 }
