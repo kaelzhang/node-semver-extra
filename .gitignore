@@ -12,6 +12,7 @@
 *.vi
 *~
 *.sass-cache
+package-lock.json
 
 # OS or Editor folders
 .DS_Store

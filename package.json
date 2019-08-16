@@ -1,6 +1,6 @@
 {
   "name": "semver-extra",
-  "version": "2.0.1",
+  "version": "3.0.0",
   "description": "semver-extra contains useful methods that aren't included in the vanilla semver package.",
   "main": "index.js",
   "scripts": {
@@ -32,6 +32,6 @@
     "chai": "*"
   },
   "dependencies": {
-    "semver": "^5.0.0"
+    "semver": "^6.3.0"
   }
 }
